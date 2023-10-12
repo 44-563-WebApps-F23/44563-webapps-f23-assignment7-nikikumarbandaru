@@ -24,12 +24,13 @@
   }  
   function startTime()
   {
-    for(let i=0;i<9;i++)
+    random=Math.floor(Math.random() * 9) + 2
+    for(let i=random;i>=0;i--)
     {
       setTimeout(function()
       {
         document.getElementById("counter").innerHTML="Count: "+i
-      },(8-i)*1000)
+      },(random-i)*1000)
     }
     setTimeout(function()
     {
@@ -43,7 +44,7 @@
         let elapsedTime=endTime-reactTime
         document.getElementById("target").innerHTML="Time was "+elapsedTime
       }
-    },8000)
+    },random*1000)
   }
   </script>
 </body>

@@ -32,6 +32,7 @@
 	<button onclick="makeNewDiv()">Add end</button>
 	<button onclick="addFront()">Add front</button>
 	<button onclick="remove()">Remove</button>
+	<button onclick="swap()">Swap</button>
 		<div class="flex-container" id="target">
 		  <div class="merger">row item 1</div>   
 		  <div class="merger">row item 2</div>  
@@ -52,7 +53,7 @@
 	function remove()
 	{
 		var mergerItems=document.getElementsByClassName("merger")
-		length=mergerItems.length
+		var length=mergerItems.length
 		if(length>0)
 		{
 			mergerItems[Math.floor(length/2)].remove()
@@ -66,6 +67,21 @@
 		elementFront.innerHTML=input
 		container=document.getElementById('target')
 		container.insertBefore(elementFront,container.firstChild)
+	}
+	function swap()
+	{
+		let mergerItems=document.getElementsByClassName("merger");
+		let container=document.getElementById("target");
+		let sw1=Math.floor(Math.random()*mergerItems.length);
+		let sw2=Math.floor(Math.random()*mergerItems.length);
+		let Item1=document.getElementsByClassName("merger")[sw1];
+		let Item2=document.getElementsByClassName("merger")[sw2];
+		if(mergerItems.length>1)
+		{
+			let temp=Item1.innerHTML;
+			Item1.innerHTML=Item2.innerHTML;
+			Item2.innerHTML=temp
+		}
 	}
 </script>
 </html>	
